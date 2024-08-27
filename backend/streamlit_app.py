@@ -4,7 +4,7 @@ import requests
 st.set_page_config(layout="wide")
 from datetime import datetime
 
-st.title("AAVE Translation App")
+st.title("BE.AI")
 
 col1, col2, col3 = st.columns([0.35, 0.3, 0.35])
 
