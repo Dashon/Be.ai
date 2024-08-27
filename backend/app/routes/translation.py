@@ -4,6 +4,7 @@ from app.services.translation_service import translate_text
 
 router = APIRouter()
 
+
 @router.post("/")
 def translate(request: TranslationRequest):
     translated_text = translate_text(request)
