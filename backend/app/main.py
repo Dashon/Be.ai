@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.hello import hello
@@ -21,3 +22,12 @@ app.include_router(vocabulary.router, prefix="/vocab")
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the AAVE Translation API"}
+
+
+def start():
+    """Launched with `poetry run start` at root level"""
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+
+if __name__ == "__main__":
+    start()

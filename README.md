@@ -14,6 +14,8 @@ This project provides a platform for translating between multiple languages and 
 1. Navigate to the `backend` directory.
 2. Install dependencies: `pip install -r requirements.txt`
 3. Run the FastAPI server: `uvicorn app.main:app --reload`
+4. or export PYTHONPATH=./backend  
+   uvicorn app.main:app --reload --app-dir backend/app
 
 ### Frontend
 
