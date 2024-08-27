@@ -21,7 +21,7 @@ app.include_router(vocabulary.router, prefix="/vocab")
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to the AAVE Translation API"}
+    return hello()
 
 
 def start():
