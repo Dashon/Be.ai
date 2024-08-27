@@ -1,8 +1,0 @@
-fastapi
-uvicorn
-transformers
-torch
-pymongo
-sentencepiece
-streamlit
-pandas
