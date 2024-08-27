@@ -1,19 +1,28 @@
 import streamlit as st
 import requests
 
-st.title("AAVE Translation App")
+st.set_page_config(page_title="AAVE Translation App", layout="centered")
 
-text = st.text_area("Enter text to translate", "")
+st.title("AAVE Translation App")
+st.write("Translate text from English to African American Vernacular English (AAVE).")
+
+text = st.text_area("Enter text to translate", "", height=150)
 
 if st.button("Translate"):
-    response = requests.post("http://backend:8000/translate/", json={
-        "text": text,
-        "source_lang": "en",
-        "target_lang": "aave"
-    })
-    if response.status_code == 200:
-        translated_text = response.json().get("translated_text", "")
-        st.write("Translated Text:")
-        st.write(translated_text)
+    if text.strip():
+        with st.spinner("Translating..."):
+            try:
+                response = requests.post("http://backend:8000/translate/", json={
+                    "text": text,
+                    "source_lang": "en",
+                    "target_lang": "aave"
+                })
+                response.raise_for_status()
+                translated_text = response.json().get("translated_text", "")
+                st.success("Translation successful!")
+                st.write("### Translated Text:")
+                st.write(translated_text)
+            except requests.exceptions.RequestException as e:
+                st.error(f"Error in translation: {e}")
     else:
-        st.write("Error in translation")
+        st.warning("Please enter text to translate.")
