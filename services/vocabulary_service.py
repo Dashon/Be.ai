@@ -1,4 +1,5 @@
-from app.utils.database import get_vocabulary_collection
+from utils.database import get_vocabulary_collection
+
 
 def add_vocabulary(item):
     vocab_collection = get_vocabulary_collection()

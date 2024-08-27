@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
-from app.models.translation import TranslationRequest
-from app.services.translation_service import translate_text
+from models.translation import TranslationRequest
+from services.translation_service import translate_text
 
 router = APIRouter()
 

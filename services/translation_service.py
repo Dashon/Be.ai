@@ -1,6 +1,8 @@
 import os
 from openai import OpenAI
+from dotenv import load_dotenv
 
+load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Ensure you have set your OpenAI API key as an environment variable
@@ -42,6 +44,8 @@ def translate_text(request):
                                     Geographical Setting: {request.geographical_setting}
 
                                     Output: Only return the translated text without additional information or explanations unless clarification is requested by the user.
+
+                                    Do not add additional text beside the translated answer.
 
 
                                Here is the text to translate:
