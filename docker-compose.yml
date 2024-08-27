@@ -10,11 +10,11 @@ services:
       - MONGODB_URI=mongodb://mongo:27017/
       - DATABASE_NAME=aave_translation
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    volumes:
-      - ./frontend:/app
   mongo:
     image: mongo
     ports:
